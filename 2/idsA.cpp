@@ -5,7 +5,7 @@
 int main(int argc, char const *argv[])
 {
     std::string line;
-    std::ifstream input("/home/xortega/AoC2025/2/conbination.txt");
+    std::ifstream input("conbination.txt");
     long first_id;
     long end_id;
     long sum = 0;
