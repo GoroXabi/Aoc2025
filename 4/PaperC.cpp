@@ -131,35 +131,35 @@ std::string *simulate(std::string *matrix){
             }
             int arround = 0;
             //TOP
-            if (y != 0 && matrix[y - 1][x] == '@')
+            if (matrix[y - 1 + HEIGHT % HEIGHT][x + WIDTH % WIDTH] == '@')
                 arround++;
-            if (y != 0 && x != 0 && matrix[y - 1][x - 1] == '@')
+            if (matrix[y - 1 + HEIGHT % HEIGHT][x - 1 + WIDTH % WIDTH] == '@')
                 arround++;
-            if (y != 0 && x != WIDTH && matrix[y - 1][x + 1] == '@')
+            if (matrix[y - 1 + HEIGHT % HEIGHT][x + 1 + WIDTH % WIDTH] == '@')
                 arround++;
             //BOTTOM
-            if (y != HEIGHT - 1 && matrix[y + 1][x] == '@')
+            if (matrix[y + 1 + HEIGHT % HEIGHT][x + WIDTH % WIDTH] == '@')
                 arround++;
-            if (y != HEIGHT - 1 && x != 0 && matrix[y + 1][x - 1] == '@')
+            if (matrix[y + 1 + HEIGHT % HEIGHT][x - 1 + WIDTH % WIDTH] == '@')
                 arround++;
-            if (y != HEIGHT - 1 && x != WIDTH && matrix[y + 1][x + 1] == '@')
+            if (matrix[y + 1 + HEIGHT % HEIGHT][x + 1 + WIDTH % WIDTH] == '@')
                 arround++;
             //SIDES
-            if (x != 0 && matrix[y][x - 1] == '@')
+            if (matrix[y + HEIGHT % HEIGHT][x - 1 + WIDTH % WIDTH] == '@')
                 arround++;
-            if (x != WIDTH - 1 && matrix[y][x + 1] == '@')
+            if (matrix[y + HEIGHT % HEIGHT][x + 1 + WIDTH % WIDTH] == '@')
                 arround++;
 
             if (arround < 4)
             {
-                heatmap[y][x] = ANSI_32[gen % 65 + 1];
-                std::cout << heatmap[y][x] << 'x' << ANSI_RESET;
-                new_matrix[y][x] = 'x';
+                heatmap[y + HEIGHT % HEIGHT][x + WIDTH % WIDTH] = ANSI_32[gen % 65 + 1];
+                std::cout << heatmap[y + HEIGHT % HEIGHT][x] << 'x' << ANSI_RESET;
+                new_matrix[y + HEIGHT % HEIGHT][x + WIDTH % WIDTH] = 'x';
             }
             else
             {
                 std::cout << '@';
-                new_matrix[y][x] = '@';
+                new_matrix[y + HEIGHT % HEIGHT][x + WIDTH % WIDTH] = '@';
             }
 
         }
