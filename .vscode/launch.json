@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/xortega/Aoc/4",
-      "program": "/home/xortega/Aoc/4/build/Debug/outDebug",
+      "cwd": "/mnt/a/Aoc2025/6/",
+      "program": "/mnt/a/Aoc2025/6/a.out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

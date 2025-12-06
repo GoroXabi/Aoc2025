@@ -4,6 +4,8 @@
 #include <vector>
 #include <algorithm>
 
+bool compare(std::pair<long, long> a , std::pair<long, long> b) {return a.first < b.first;}
+    
 int main(int argc, char const *argv[])
 {
     std::string line;
@@ -18,16 +20,23 @@ int main(int argc, char const *argv[])
             long last = std::atol(line.substr((line.find('-'))).c_str() + 1);
             ranges.push_back(std::make_pair(first, last));
     }
-    for (std::vector<std::pair<long, long> >::iterator it = ranges.begin(); it != ranges.end(); ++it)
+
+    std::sort(ranges.begin(), ranges.end(), compare);
+
+    std::vector<std::pair<long,long>> merged;
+
+    for (std::vector<std::pair<long, long> >::iterator r = ranges.begin(); r != ranges.end(); ++r)
     {
-        for (std::vector<std::pair<long, long> >::iterator it2 = it + 1; it2 != ranges.end(); ++it2)
-        {
-            if (it->first >)
-        }
+        if (merged.empty() || merged.back().second < r->first)
+            merged.push_back(*r);
+        else
+            merged.back().second = std::max(merged.back().second, r->second);
     }
-    for (std::vector<std::pair<long, long> >::iterator it = ranges.begin(); it != ranges.end(); ++it)
+
+    for (std::vector<std::pair<long, long> >::iterator it = merged.begin(); it != merged.end(); ++it)
     {
-        std::cout << it->second << " - " << it->first << " = " << (it->second - it->first) +1 << std::endl;
+        if (it->second == 1 && it->first == 1)
+            continue;
         sum += (it->second - it->first) +1;
     }
     std::cout << sum << std::endl;
