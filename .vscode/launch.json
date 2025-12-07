@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/xabier/Aoc2025/4/",
-      "program": "/home/xabier/Aoc2025/4/a.out",
+      "cwd": "/home/xabier/Aoc2025/7/",
+      "program": "/home/xabier/Aoc2025/7/a.out",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
