@@ -12,17 +12,15 @@ int higth;
 void ray(int y, int x, std::vector<std::string > &matrix)
 {
     if (y == higth - 1)
-    {
-        sum++;
-        std::cout << sum << std::endl;
         return;
-    }
     if (x == width || x < 0)
         return;
     if (matrix[y][x] == '.' || matrix[y][x] == 'S')
         ray(y + 1, x, matrix);
     if (matrix[y][x] == '^')
     {
+        sum++;
+        matrix[y][x] = 'x';
         ray(y + 1, x + 1, matrix);
         ray(y + 1, x - 1, matrix);
     }
@@ -49,5 +47,3 @@ int main(int argc, char const *argv[])
         std::cout << sum << std::endl;
     return 0;
 }
-
-//565061200 is too low
